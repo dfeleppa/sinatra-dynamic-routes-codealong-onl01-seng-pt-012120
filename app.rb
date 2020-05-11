@@ -19,7 +19,16 @@ class App < Sinatra::Base
     "Goodbye, #{@user_name}."
   end
 
-  get "/multiply/:num1/:num2" do
-    "#{params[:num1].to_i*params[:num2].to_i}"
-  end
+   get "/:operation/:number1/:number2" do
+    @number_1 = params[:number1].to_i
+    @number_2 = params[:number2].to_i
+    if params[:operation] == "add"
+      "#{@number_1+@number_2}"
+    elsif params[:operation] == "subtract"
+      "#{@number_1-@number_2}"
+    elsif params[:operation] == "multiply"
+      "#{@number_1*@number_2}"
+    elsif params[:operation] == "divide"
+      "#{@number_1/@number_2}"
+    end
 end

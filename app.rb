@@ -19,7 +19,7 @@ class App < Sinatra::Base
     "Goodbye, #{@user_name}."
   end
 
- c:number1/:number2" do
+  get "/multiply/:number1/:number2" do
     @result = params[:number1, :number2]
     @resuls = :number1 * :number2
     "#{results}"
